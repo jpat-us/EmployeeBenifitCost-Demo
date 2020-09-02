@@ -1,0 +1,64 @@
+﻿@model IEnumerable<EmployeeBenifitCost>
+@{
+    ViewData["Title"] = "Index";
+    //ViewBag["Title"] = "Index";
+}
+
+
+<h3>Employee Cost Details</h3>
+
+@*For Display Employee info*@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Department)
+            </th>
+
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Company)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.DependentsCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BenifitCost)
+            </th>
+
+    </thead>
+    <tbody>
+        @foreach (var vm in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => vm.FullName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => vm.Department)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => vm.Company)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => vm.DependentsCount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => vm.BenifitCost)
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+<div>
+    @Html.ActionLink("Back to Employee List", "index",
+               "Employee",null)
+</div>
+
